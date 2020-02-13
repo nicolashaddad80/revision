@@ -23,7 +23,7 @@ public class OffreSwing {
     public OffreSwing(Projet projet) {
         this.projet = projet;
         this.fenetre = new JFrame("Offre de prêt");
-        offres.setEditable(false);
+        //TODO Moved to ProjectDisplay JPanel final private offres.setEditable(false);
 
         fenetre.pack();
         fenetre.setVisible(true);
