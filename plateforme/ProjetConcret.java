@@ -1,4 +1,4 @@
-package fr.cnam.revision;
+package fr.cnam.revision.plateforme;
 
 import java.util.ArrayList;
 import java.util.Iterator;

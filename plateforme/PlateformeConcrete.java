@@ -1,13 +1,10 @@
-package fr.cnam.revision;
+package fr.cnam.revision.plateforme;
 
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
-public class PlateformeConcrete extends HashMap<String,Projet> implements Plateforme {
-
-   // private Map<String, Projet> mesProjets = new HashMap<>();
+public class PlateformeConcrete extends HashMap<String, Projet> implements Plateforme {
 
     public Projet nouveauProjet(String nom, int montant) {
         Projet unNouveauProjet = new ProjetConcret(nom, montant);

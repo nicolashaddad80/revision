@@ -1,4 +1,4 @@
-package fr.cnam.revision;
+package fr.cnam.revision.plateforme;
 
 public interface Plateforme extends Iterable<Projet> {
     /**

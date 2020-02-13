@@ -1,5 +1,8 @@
 package fr.cnam.revision;
 
+import fr.cnam.revision.plateforme.Plateforme;
+import fr.cnam.revision.plateforme.PlateformeConcrete;
+
 public class ExempleSujet {
 
     static public Plateforme getPlateformeSujet() {

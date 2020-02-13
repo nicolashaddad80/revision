@@ -1,4 +1,6 @@
-package fr.cnam.revision;
+package fr.cnam.revision.application;
+
+import fr.cnam.revision.plateforme.Projet;
 
 import javax.swing.*;
 
