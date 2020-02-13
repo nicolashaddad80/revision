@@ -1,12 +1,18 @@
 package fr.cnam.revision;
 
+
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
-public class PlateformeConcrete implements Plateforme {
+public class PlateformeConcrete extends HashMap<String,Projet> implements Plateforme {
 
+   // private Map<String, Projet> mesProjets = new HashMap<>();
 
     public Projet nouveauProjet(String nom, int montant) {
-        return null;
+        Projet unNouveauProjet = new ProjetConcret(nom, montant);
+        this.put(nom, unNouveauProjet);
+        return unNouveauProjet;
     }
 
     public void faireOffre(String nom, int montant, double taux) {
@@ -14,11 +20,12 @@ public class PlateformeConcrete implements Plateforme {
     }
 
     public Projet getProjet(String nom) {
-        return null;
+
+        return this.get(nom);
     }
 
     public Iterator<Projet> iterator() {
-        return null;
+        return this.values().iterator();
     }
 
     @Override
