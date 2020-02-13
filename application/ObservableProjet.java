@@ -8,10 +8,10 @@ import fr.cnam.tp12.mypatterns.MyObserver;
 import java.util.ArrayList;
 
 
-public class ObservableProjet extends ProjetAbstrait implements MyObservable {
+public class ObservableProjet extends ProjetDecorator implements MyObservable {
 
 
-    private ArrayList<fr.cnam.tp12.mypatterns.MyObserver> observers = new ArrayList<>();
+    private ArrayList<MyObserver> observers = new ArrayList<>();
 
     public ObservableProjet(Projet monProjet) {
         super(monProjet);

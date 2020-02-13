@@ -1,26 +1,18 @@
 package fr.cnam.revision.application;
 
 
-import fr.cnam.tp12.mypatterns.OptimizedClass;
-
+import fr.cnam.revision.plateforme.Offre;
+import fr.cnam.tp12.mypatterns.MyObserver;
 
 import javax.swing.*;
+import java.util.Iterator;
 
 
-public class ProjetDisplay extends JPanel implements OptimizedClass {
-
-    /*Attributes*/
+public class ProjetDisplay extends JPanel implements MyObserver {
 
 
-    /*Vue Model*/
-
-    /**
-     * My Model is a simple Ob
-     * servable counter that I will Observe by registering me to him
-     */
     //ToClean by using Singleton ???
     private ObservableProjet myObservableProject;
-    //private MyObserver myModelObserver;
 
     /**
      * My Model is
@@ -51,13 +43,23 @@ public class ProjetDisplay extends JPanel implements OptimizedClass {
     }
 
     private void LoadMyModel() {
-
-      //  for (String message : this.myObservableProject) this.Projetdisplay.append(message);
+        //TODO Add update of JLabel representing the Project at top of this pannel
+        for (Iterator<Offre> it = this.myObservableProject.iterator(); it.hasNext(); ) {
+            Offre offre = it.next();
+            this.Projetdisplay.append(offre + "\n");
+        }
     }
 
     @Override
     public void update(Object observable) {
-        //this.Projetdisplay.append(this.myObservableProject.last());
+        Offre derniereOffre = null;
+
+        for (Iterator<Offre> it = this.myObservableProject.iterator(); it.hasNext(); )
+            derniereOffre = it.next();
+        if (derniereOffre == null)
+            throw new NullPointerException();
+        else
+            this.Projetdisplay.append(derniereOffre + "\n");
     }
 
     /**

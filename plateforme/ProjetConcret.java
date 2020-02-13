@@ -2,13 +2,14 @@ package fr.cnam.revision.plateforme;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.TreeSet;
 
-public class ProjetConcret implements Projet {
+public class ProjetConcret extends TreeSet<Offre> implements Projet {
     private String nom;
     private int montant;
 
     // les offres
-    private ArrayList<Offre> mesOffres = new ArrayList();
+    private TreeSet<Offre> mesOffres = new TreeSet<>();
 
 
     public ProjetConcret(String nom, int montant) {

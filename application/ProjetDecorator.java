@@ -5,10 +5,10 @@ import fr.cnam.revision.plateforme.Projet;
 
 import java.util.Iterator;
 
-public abstract class ProjetAbstrait implements Projet {
+public abstract class ProjetDecorator implements Projet {
     private static Projet monProjet;
 
-    public ProjetAbstrait(Projet monProjet) {
+    public ProjetDecorator(Projet monProjet) {
         this.monProjet = monProjet;
     }
 
