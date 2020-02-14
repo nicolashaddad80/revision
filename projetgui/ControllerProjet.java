@@ -1,10 +1,11 @@
 package fr.cnam.revision.projetgui;
 
+import fr.cnam.cour11.DebugOnOFF;
+import fr.cnam.revision.applicationProjet.AppProjet;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.sql.Timestamp;
-import java.util.Date;
 
 public class ControllerProjet extends JPanel {
 
@@ -24,36 +25,37 @@ public class ControllerProjet extends JPanel {
 
     public ControllerProjet() {
 
-        this.panelMontant.add(this.labelMontant,BorderLayout.EAST);
-        this.panelMontant.add(this.valeurMontant,BorderLayout.WEST);
+        this.panelMontant.add(this.labelMontant, BorderLayout.EAST);
+        this.panelMontant.add(this.valeurMontant, BorderLayout.WEST);
 
 
-        this.panelTaux.add(this.labelTaux,BorderLayout.EAST);
-        this.panelTaux.add(this.valeurTaux,BorderLayout.WEST);
+        this.panelTaux.add(this.labelTaux, BorderLayout.EAST);
+        this.panelTaux.add(this.valeurTaux, BorderLayout.WEST);
 
-        this.panelBouton.add(this.boutonAnnuler,BorderLayout.WEST);
-        this.panelBouton.add(this.boutonPreter,BorderLayout.EAST);
-        LayoutManager controllerLayout=new GridLayout(3,1);
+        this.panelBouton.add(this.boutonAnnuler, BorderLayout.WEST);
+        this.panelBouton.add(this.boutonPreter, BorderLayout.EAST);
+        LayoutManager controllerLayout = new GridLayout(3, 1);
         this.setLayout(controllerLayout);
-        this.add(this.panelMontant,0);
-        this.add(this.panelTaux,1);
-        this.add(this.panelBouton,2);
+        this.add(this.panelMontant, 0);
+        this.add(this.panelTaux, 1);
+        this.add(this.panelBouton, 2);
 
         this.boutonPreter.addActionListener(this::updateModel);
         this.boutonAnnuler.addActionListener(this::cancelOffer);
-
-
-
     }
 
     private void updateModel(ActionEvent actionEvent) {
 
-        //Date object
-        Date date = new Date();
-        //getTime() returns current time in milliseconds
-        long time = date.getTime();
-        //Passed the milliseconds to constructor of Timestamp class
-        Timestamp ts = new Timestamp(time);
+        //todo check if not null and also if Montant and Taux are within the specified ranges
+        int montant = this.getMontant();
+        double taux = this.getTaux();
+        boolean montantValide = this.validateMontant(montant);
+        boolean tauxValide = this.validateTaux(taux);
+
+        if (montantValide && tauxValide)
+            AppProjet.getMonObservableProjet().faireOffre(montant, taux);
+
+
         /*TODO incomment if (!userMessageField.getText().isEmpty()) {
             //TODO AppProjet.getMonObservableProjet().add(ts + "  " + this.userLabel.getText() + this.userMessageField.getText() + DebugOnOFF.newline);
             //AppProjet.getMonObservableProjet().faireOffre(this.);
@@ -61,7 +63,70 @@ public class ControllerProjet extends JPanel {
         }
 
          */
-        this.clearOffer();
+
+    }
+
+    private boolean validateMontant(double montant) {
+        boolean montantIsValide = false;
+        if (montant >= 20) {
+            this.valeurMontant.setBackground(Color.WHITE);
+            montantIsValide = true;
+        } else
+            this.valeurMontant.setBackground(Color.RED);
+        return montantIsValide;
+    }
+
+
+    private boolean validateTaux(double taux) {
+        boolean tauxIsValide = false;
+        if (taux <= 10 && taux >= 4) {
+
+            this.valeurTaux.setBackground(Color.WHITE);
+            tauxIsValide = true;
+        } else
+            this.valeurTaux.setBackground(Color.RED);
+        return tauxIsValide;
+    }
+
+    private void invalidateMontant() {
+        if (DebugOnOFF.DEBUG_ON)
+            System.out.println("Montant Invalide");
+        this.valeurMontant.setBackground(Color.RED);
+    }
+
+    private void invalidateTaux() {
+        if (DebugOnOFF.DEBUG_ON)
+            System.out.println("Taux Invalide");
+        this.valeurTaux.setBackground(Color.RED);
+    }
+
+    private double getTaux() {
+        double taux = -1;
+        try {
+            taux = Double.parseDouble(this.valeurTaux.getText());
+
+        } catch (NumberFormatException e) {
+            this.invalidateTaux();
+        } catch (NullPointerException e) {
+
+            this.invalidateTaux();
+        }
+        return taux;
+    }
+
+
+    private int getMontant() {
+        int montant = -1;
+        try {
+            montant = Integer.parseInt(this.valeurMontant.getText());
+
+        } catch (NumberFormatException e) {
+            this.invalidateMontant();
+        } catch (NullPointerException e) {
+
+            this.invalidateMontant();
+        }
+        return montant;
     }
 
     private void cancelOffer(ActionEvent actionEvent) {
@@ -69,7 +134,13 @@ public class ControllerProjet extends JPanel {
     }
 
     private void clearOffer() {
+
         this.valeurMontant.setText(null);
+        this.valeurMontant.setBackground(Color.WHITE);
+
         this.valeurTaux.setText(null);
+        this.valeurTaux.setBackground(Color.WHITE);
     }
+
+
 }

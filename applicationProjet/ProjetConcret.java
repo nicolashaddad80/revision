@@ -6,7 +6,7 @@ import java.util.TreeSet;
 public class ProjetConcret extends TreeSet<Offre> implements Projet {
     private String nom;
     private int montant;
-
+    private static int numOffre=0;
     // les offres
     private TreeSet<Offre> mesOffres = new TreeSet<>();
 
@@ -27,7 +27,7 @@ public class ProjetConcret extends TreeSet<Offre> implements Projet {
     }
 
     public void faireOffre(int montant, double taux) {
-
+        this.mesOffres.add(new OffreConcrete(++numOffre,montant,taux));
     }
 
     public Iterator<Offre> iterator() {

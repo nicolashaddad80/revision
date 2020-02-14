@@ -6,6 +6,7 @@ import fr.cnam.revision.applicationProjet.Offre;
 import fr.cnam.tp12.mypatterns.MyObserver;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Iterator;
 
 
@@ -26,10 +27,11 @@ public class ProjetDisplay extends JPanel implements MyObserver {
         this.Projetdisplay.setWrapStyleWord(true);
         this.Projetdisplay.setEditable(false);
         this.Projetdisplay.setColumns(45);
-        this.Projetdisplay.setRows(20);
+        this.Projetdisplay.setRows(10);
         this.Projetdisplay.setAutoscrolls(true);
-        this.add(infoProjet);
-        this.add(this.Projetdisplay);
+        this.add(infoProjet, BorderLayout.NORTH);
+        this.add(this.Projetdisplay,BorderLayout.CENTER);
+        this.setAutoscrolls(false);
         this.LoadMyModel();
     }
 
@@ -47,9 +49,10 @@ public class ProjetDisplay extends JPanel implements MyObserver {
     @Override
     public void update(Object observable) {
         Offre derniereOffre = null;
-
-        for (Iterator<Offre> it = AppProjet.getMonObservableProjet().iterator(); it.hasNext(); )
+        Iterator<Offre> it = AppProjet.getMonObservableProjet().iterator();
+        while ( it.hasNext() )
             derniereOffre = it.next();
+
         if (derniereOffre == null)
             throw new NullPointerException();
         else

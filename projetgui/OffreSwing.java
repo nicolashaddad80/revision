@@ -17,7 +17,9 @@ public class OffreSwing {
     public OffreSwing() {
         this.fenetre = new JFrame("Offre de pret");
         Container content = this.fenetre.getContentPane();
-        content.add(this.monAffichageProjet, BorderLayout.NORTH);
+
+
+        content.add(this.monAffichageProjet,BorderLayout.NORTH);
         content.add(this.monControlleurProjet, BorderLayout.CENTER);
         this.fenetre.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
