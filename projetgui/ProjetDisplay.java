@@ -1,4 +1,4 @@
-package fr.cnam.revision.application;
+package fr.cnam.revision.projetgui;
 
 
 import fr.cnam.revision.applicationProjet.AppProjet;
@@ -28,16 +28,15 @@ public class ProjetDisplay extends JPanel implements MyObserver {
         this.Projetdisplay.setColumns(45);
         this.Projetdisplay.setRows(40);
         this.Projetdisplay.setAutoscrolls(true);
-
         this.add(infoProjet);
         this.add(this.Projetdisplay);
-
+        this.setSize(500, 200);
         this.LoadMyModel();
     }
 
     private void LoadMyModel() {
         // update of JLabel representing the Project at top of this panel
-        this.infoProjet.setText("Offre  sur le Projet :"+AppProjet.getMonObservableProjet().getNom()+" ("+AppProjet.getMonObservableProjet().getMontant()+")");
+        this.infoProjet.setText("Offre  sur le Projet :" + AppProjet.getMonObservableProjet().getNom() + " (" + AppProjet.getMonObservableProjet().getMontant() + ")");
 
         //adding projet offers to the text area
         for (Iterator<Offre> it = AppProjet.getMonObservableProjet().iterator(); it.hasNext(); ) {

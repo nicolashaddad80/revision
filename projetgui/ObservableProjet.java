@@ -1,4 +1,4 @@
-package fr.cnam.revision.application;
+package fr.cnam.revision.projetgui;
 
 import fr.cnam.cour11.DebugOnOFF;
 import fr.cnam.tp12.mypatterns.MyObservable;

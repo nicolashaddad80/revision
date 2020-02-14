@@ -1,4 +1,4 @@
-package fr.cnam.revision.application;
+package fr.cnam.revision.projetgui;
 
 import fr.cnam.revision.applicationProjet.Offre;
 import fr.cnam.revision.applicationProjet.Projet;

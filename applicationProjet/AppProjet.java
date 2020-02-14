@@ -1,6 +1,6 @@
 package fr.cnam.revision.applicationProjet;
 
-import fr.cnam.revision.application.ObservableProjet;
+import fr.cnam.revision.projetgui.ObservableProjet;
 /**
  * This is Singleton for Projet
  */

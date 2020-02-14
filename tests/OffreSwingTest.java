@@ -1,10 +1,7 @@
 package fr.cnam.revision.tests;
 
 import fr.cnam.cour11.DebugOnOFF;
-import fr.cnam.revision.application.ObservableProjet;
-import fr.cnam.revision.application.OffreSwing;
-import fr.cnam.revision.applicationProjet.AppProjet;
-import fr.cnam.revision.applicationProjet.ProjetConcret;
+import fr.cnam.revision.projetgui.OffreSwing;
 
 import javax.swing.*;
 
