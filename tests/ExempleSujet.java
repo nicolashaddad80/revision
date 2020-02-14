@@ -1,4 +1,4 @@
-package fr.cnam.revision;
+package fr.cnam.revision.tests;
 
 import fr.cnam.revision.plateforme.Plateforme;
 import fr.cnam.revision.plateforme.PlateformeConcrete;

@@ -1,41 +1,54 @@
 package fr.cnam.revision.application;
 
-import fr.cnam.revision.plateforme.Projet;
-import fr.cnam.revision.plateforme.ProjetConcret;
-import fr.cnam.tp13.application.TchatGui;
-
 import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class OffreSwing {
-    final private Projet projet;
+    final private ObservableProjet projet;
     //TODO MAnage JFrame Closer to unregister from ObservableProjet
     final JFrame fenetre;
+    private final ProjetDisplay monAffichageProjet;
+
     //TODO Moove to controller JPanel
-    final private JTextField valeurMontant = new JTextField(6);
+   // final private JTextField valeurMontant = new JTextField(6);
     //TODO Moove to controller JPanel
-    final private JTextField valeurTaux = new JTextField(6);
+   // final private JTextField valeurTaux = new JTextField(6);
     //TODO Moove to controller JPanel
-    final private JButton boutonAnnuler = new JButton("Annuler");
+   // final private JButton boutonAnnuler = new JButton("Annuler");
     //TODO Moove to controller JPanel
-    final private JButton boutonPreter = new JButton("Prêter");
+    //final private JButton boutonPreter = new JButton("Prêter");
     //TODO Moved to ProjectDisplay JPanel final private JTextArea offres = new JTextArea();
 
-    public OffreSwing(Projet projet) {
+
+    public OffreSwing(ObservableProjet projet) {
+        //Todo clean with sigleton as teacher explained
         this.projet = projet;
+        this.monAffichageProjet = new ProjetDisplay(this.projet);
+
         this.fenetre = new JFrame("Offre de prêt");
         //TODO Moved to ProjectDisplay JPanel final private offres.setEditable(false);
 
-        fenetre.pack();
-        fenetre.setVisible(true);
+        this.fenetre.add(monAffichageProjet);
     }
-    private void start() {
-        fenetre.pack();
-        fenetre.setVisible(true);
-    }
-    //To Clean and use thread invoker.
-    public static void main(String args[]){
-        SwingUtilities.invokeLater(() ->new OffreSwing(new ObservableProjet(new ProjetConcret("XYZ",15000))).start());
 
+    //To Clean and use thread invoker.
+    public void start() {
+        this.fenetre.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                myExit();
+            }
+        });
+        this.fenetre.setSize(500, 400);
+        this.fenetre.setVisible(true);
+    }
+
+    private void myExit() {
+        this.monAffichageProjet.destroy();
+        System.out.println("Thank you Using this Application");
+        this.fenetre.dispose();
+        if (this.projet.countObservers() == 0)
+            System.exit(0);
     }
 
 
