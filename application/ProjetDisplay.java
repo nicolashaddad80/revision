@@ -1,7 +1,8 @@
 package fr.cnam.revision.application;
 
 
-import fr.cnam.revision.plateforme.Offre;
+import fr.cnam.revision.applicationProjet.AppProjet;
+import fr.cnam.revision.applicationProjet.Offre;
 import fr.cnam.tp12.mypatterns.MyObserver;
 
 import javax.swing.*;
@@ -11,16 +12,13 @@ import java.util.Iterator;
 public class ProjetDisplay extends JPanel implements MyObserver {
 
 
-    //ToClean by using Singleton ???
-    private ObservableProjet monObservableProjett;
-
     private JTextArea Projetdisplay;
     private JLabel infoProjet;
 
 
-    public ProjetDisplay(ObservableProjet unObservableProjet) {
-        this.monObservableProjett = unObservableProjet;
-        this.monObservableProjett.addObserver(this);
+    public ProjetDisplay() {
+
+        AppProjet.getMonObservableProjet().addObserver(this);
 
         this.infoProjet = new JLabel();
         this.Projetdisplay = new JTextArea();
@@ -39,10 +37,10 @@ public class ProjetDisplay extends JPanel implements MyObserver {
 
     private void LoadMyModel() {
         // update of JLabel representing the Project at top of this panel
-        this.infoProjet.setText("Offre  sur le Projet :"+this.monObservableProjett.getNom()+" ("+this.monObservableProjett.getMontant()+")");
+        this.infoProjet.setText("Offre  sur le Projet :"+AppProjet.getMonObservableProjet().getNom()+" ("+AppProjet.getMonObservableProjet().getMontant()+")");
 
         //adding projet offers to the text area
-        for (Iterator<Offre> it = this.monObservableProjett.iterator(); it.hasNext(); ) {
+        for (Iterator<Offre> it = AppProjet.getMonObservableProjet().iterator(); it.hasNext(); ) {
             Offre offre = it.next();
             this.Projetdisplay.append(offre + "\n");
         }
@@ -52,7 +50,7 @@ public class ProjetDisplay extends JPanel implements MyObserver {
     public void update(Object observable) {
         Offre derniereOffre = null;
 
-        for (Iterator<Offre> it = this.monObservableProjett.iterator(); it.hasNext(); )
+        for (Iterator<Offre> it = AppProjet.getMonObservableProjet().iterator(); it.hasNext(); )
             derniereOffre = it.next();
         if (derniereOffre == null)
             throw new NullPointerException();
@@ -68,7 +66,7 @@ public class ProjetDisplay extends JPanel implements MyObserver {
 
     @Override
     public void destroy() {
-        this.monObservableProjett.deleteObserver(this);
+        AppProjet.getMonObservableProjet().deleteObserver(this);
     }
 
 }

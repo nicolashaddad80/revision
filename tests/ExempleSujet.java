@@ -1,7 +1,7 @@
 package fr.cnam.revision.tests;
 
-import fr.cnam.revision.plateforme.Plateforme;
-import fr.cnam.revision.plateforme.PlateformeConcrete;
+import fr.cnam.revision.applicationProjet.Plateforme;
+import fr.cnam.revision.applicationProjet.PlateformeConcrete;
 
 public class ExempleSujet {
 

@@ -1,30 +1,31 @@
 package fr.cnam.revision.application;
 
+import fr.cnam.revision.applicationProjet.AppProjet;
+
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class OffreSwing {
-    final private ObservableProjet projet;
+
     //TODO MAnage JFrame Closer to unregister from ObservableProjet
     final JFrame fenetre;
     private final ProjetDisplay monAffichageProjet;
 
     //TODO Moove to controller JPanel
-   // final private JTextField valeurMontant = new JTextField(6);
+    // final private JTextField valeurMontant = new JTextField(6);
     //TODO Moove to controller JPanel
-   // final private JTextField valeurTaux = new JTextField(6);
+    // final private JTextField valeurTaux = new JTextField(6);
     //TODO Moove to controller JPanel
-   // final private JButton boutonAnnuler = new JButton("Annuler");
+    // final private JButton boutonAnnuler = new JButton("Annuler");
     //TODO Moove to controller JPanel
     //final private JButton boutonPreter = new JButton("Prêter");
     //TODO Moved to ProjectDisplay JPanel final private JTextArea offres = new JTextArea();
 
 
-    public OffreSwing(ObservableProjet projet) {
-        //Todo clean with sigleton as teacher explained
-        this.projet = projet;
-        this.monAffichageProjet = new ProjetDisplay(this.projet);
+    public OffreSwing() {
+
+        this.monAffichageProjet = new ProjetDisplay();
 
         this.fenetre = new JFrame("Offre de prêt");
         //TODO Moved to ProjectDisplay JPanel final private offres.setEditable(false);
@@ -32,7 +33,6 @@ public class OffreSwing {
         this.fenetre.add(monAffichageProjet);
     }
 
-    //To Clean and use thread invoker.
     public void start() {
         this.fenetre.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
@@ -47,7 +47,7 @@ public class OffreSwing {
         this.monAffichageProjet.destroy();
         System.out.println("Thank you Using this Application");
         this.fenetre.dispose();
-        if (this.projet.countObservers() == 0)
+        if (AppProjet.getMonObservableProjet().countObservers() == 0)
             System.exit(0);
     }
 

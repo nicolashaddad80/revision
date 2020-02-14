@@ -1,4 +1,4 @@
-package fr.cnam.revision.plateforme;
+package fr.cnam.revision.applicationProjet;
 
 
 import java.util.HashMap;

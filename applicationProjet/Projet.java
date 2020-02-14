@@ -1,4 +1,4 @@
-package fr.cnam.revision.plateforme;
+package fr.cnam.revision.applicationProjet;
 
 public interface Projet extends Iterable<Offre> {
     /**
