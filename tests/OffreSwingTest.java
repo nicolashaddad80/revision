@@ -9,6 +9,7 @@ import javax.swing.*;
 
 public class OffreSwingTest {
     public static void main(String[] args) {
+        //todo Clean in  singleton as teacher said.
         ObservableProjet monProjet = new ObservableProjet(new ProjetConcret("XYZ",15000));
         SwingUtilities.invokeLater(() -> new OffreSwing(monProjet).start());
         /*Launching Additional Views of same Model counter for debug purpose if DEBUG_ON seated to true*/
