@@ -14,17 +14,17 @@ public abstract class ProjetDecorator implements Projet {
 
     @Override
     public String getNom() {
-        return this.getNom();
+        return this.monProjet.getNom();
     }
 
     @Override
     public int getMontant() {
-        return this.getMontant();
+        return this.monProjet.getMontant();
     }
 
     @Override
     public void faireOffre(int montant, double taux) {
-    this.monProjet.faireOffre(montant,taux);
+        this.monProjet.faireOffre(montant, taux);
     }
 
     public Iterator<Offre> iterator() {
@@ -36,4 +36,5 @@ public abstract class ProjetDecorator implements Projet {
 
         return this.monProjet.toString();
     }
+
 }

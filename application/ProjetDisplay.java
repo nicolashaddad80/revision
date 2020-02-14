@@ -12,23 +12,17 @@ public class ProjetDisplay extends JPanel implements MyObserver {
 
 
     //ToClean by using Singleton ???
-    private ObservableProjet myObservableProject;
+    private ObservableProjet monObservableProjett;
 
-    /**
-     * My Model is
-     * a simple Counter use simple swing label to show it in the screen
-     */
     private JTextArea Projetdisplay;
+    private JLabel infoProjet;
 
-    /**
-     * Constructor
-     *
-     * @param a_myModel: A Ordered Set
-     */
-    public ProjetDisplay(ObservableProjet a_myModel) {
-        this.myObservableProject = a_myModel;
-        this.myObservableProject.addObserver(this);
 
+    public ProjetDisplay(ObservableProjet unObservableProjet) {
+        this.monObservableProjett = unObservableProjet;
+        this.monObservableProjett.addObserver(this);
+
+        this.infoProjet = new JLabel();
         this.Projetdisplay = new JTextArea();
         this.Projetdisplay.setLineWrap(true);
         this.Projetdisplay.setWrapStyleWord(true);
@@ -37,14 +31,18 @@ public class ProjetDisplay extends JPanel implements MyObserver {
         this.Projetdisplay.setRows(40);
         this.Projetdisplay.setAutoscrolls(true);
 
+        this.add(infoProjet);
         this.add(this.Projetdisplay);
 
         this.LoadMyModel();
     }
 
     private void LoadMyModel() {
-        //TODO Add update of JLabel representing the Project at top of this pannel
-        for (Iterator<Offre> it = this.myObservableProject.iterator(); it.hasNext(); ) {
+        // update of JLabel representing the Project at top of this panel
+        this.infoProjet.setText("Offre  sur le Projet :"+this.monObservableProjett.getNom()+" ("+this.monObservableProjett.getMontant()+")");
+
+        //adding projet offers to the text area
+        for (Iterator<Offre> it = this.monObservableProjett.iterator(); it.hasNext(); ) {
             Offre offre = it.next();
             this.Projetdisplay.append(offre + "\n");
         }
@@ -54,7 +52,7 @@ public class ProjetDisplay extends JPanel implements MyObserver {
     public void update(Object observable) {
         Offre derniereOffre = null;
 
-        for (Iterator<Offre> it = this.myObservableProject.iterator(); it.hasNext(); )
+        for (Iterator<Offre> it = this.monObservableProjett.iterator(); it.hasNext(); )
             derniereOffre = it.next();
         if (derniereOffre == null)
             throw new NullPointerException();
@@ -70,7 +68,7 @@ public class ProjetDisplay extends JPanel implements MyObserver {
 
     @Override
     public void destroy() {
-        this.myObservableProject.deleteObserver(this);
+        this.monObservableProjett.deleteObserver(this);
     }
 
 }
