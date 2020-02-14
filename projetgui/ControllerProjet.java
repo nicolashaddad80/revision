@@ -33,15 +33,16 @@ public class ControllerProjet extends JPanel {
 
         this.panelBouton.add(this.boutonAnnuler,BorderLayout.WEST);
         this.panelBouton.add(this.boutonPreter,BorderLayout.EAST);
-
-        this.add(this.panelMontant,BorderLayout.NORTH);
-        this.add(this.panelTaux,BorderLayout.CENTER);
-        this.add(this.panelBouton,BorderLayout.SOUTH);
+        LayoutManager controllerLayout=new GridLayout(3,1);
+        this.setLayout(controllerLayout);
+        this.add(this.panelMontant,0);
+        this.add(this.panelTaux,1);
+        this.add(this.panelBouton,2);
 
         this.boutonPreter.addActionListener(this::updateModel);
         this.boutonAnnuler.addActionListener(this::cancelOffer);
 
-        this.setSize(500, 300);
+
 
     }
 

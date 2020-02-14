@@ -26,11 +26,10 @@ public class ProjetDisplay extends JPanel implements MyObserver {
         this.Projetdisplay.setWrapStyleWord(true);
         this.Projetdisplay.setEditable(false);
         this.Projetdisplay.setColumns(45);
-        this.Projetdisplay.setRows(40);
+        this.Projetdisplay.setRows(20);
         this.Projetdisplay.setAutoscrolls(true);
         this.add(infoProjet);
         this.add(this.Projetdisplay);
-        this.setSize(500, 200);
         this.LoadMyModel();
     }
 

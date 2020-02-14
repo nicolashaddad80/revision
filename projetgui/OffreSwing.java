@@ -17,14 +17,14 @@ public class OffreSwing {
     public OffreSwing() {
         this.fenetre = new JFrame("Offre de pret");
         Container content = this.fenetre.getContentPane();
-        content.add(this.monAffichageProjet, BorderLayout.CENTER);
-        content.add(this.monControlleurProjet, BorderLayout.SOUTH);
+        content.add(this.monAffichageProjet, BorderLayout.NORTH);
+        content.add(this.monControlleurProjet, BorderLayout.CENTER);
         this.fenetre.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
                 myExit();
             }
         });
-        this.fenetre.setSize(500, 600);
+        this.fenetre.setSize(500, 470);
     }
 
     public void start() {
