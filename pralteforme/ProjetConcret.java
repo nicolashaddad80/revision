@@ -1,4 +1,4 @@
-package fr.cnam.revision.projet;
+package fr.cnam.revision.pralteforme;
 
 import java.util.Iterator;
 import java.util.TreeSet;

@@ -1,7 +1,7 @@
 package fr.cnam.revision.projetgui;
 
 import fr.cnam.revision.applicationProjet.AppProjet;
-import fr.cnam.revision.projet.Offre;
+import fr.cnam.revision.pralteforme.Offre;
 import fr.cnam.tp12.mypatterns.MyObserver;
 
 import javax.swing.*;
@@ -35,7 +35,7 @@ public class ProjetDisplay extends JPanel implements MyObserver {
         // update of JLabel representing the Project at top of this panel
         this.infoProjet.setText("Offre  sur le Projet :" + AppProjet.getMonObservableProjet().getNom() + " (" + AppProjet.getMonObservableProjet().getMontant() + ")");
 
-        //adding projet offers to the text area
+        //adding pralteforme offers to the text area
         for (Iterator<Offre> it = AppProjet.getMonObservableProjet().iterator(); it.hasNext(); ) {
             Offre offre = it.next();
             this.Projetdisplay.append(offre + "\n");

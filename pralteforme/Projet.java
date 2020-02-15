@@ -1,13 +1,13 @@
-package fr.cnam.revision.projet;
+package fr.cnam.revision.pralteforme;
 
 public interface Projet extends Iterable<Offre> {
     /**
-     * Le nom du projet.
+     * Le nom du pralteforme.
      */
     String getNom();
 
     /**
-     * Le montant demandé par le projet.
+     * Le montant demandé par le pralteforme.
      */
     int getMontant();
 

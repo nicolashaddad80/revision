@@ -1,6 +1,6 @@
 package fr.cnam.revision.applicationProjet;
 
-import fr.cnam.revision.projet.ProjetConcret;
+import fr.cnam.revision.pralteforme.ProjetConcret;
 
 /**
  * This is Singleton for Projet

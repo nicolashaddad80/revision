@@ -1,4 +1,4 @@
-package fr.cnam.revision.projet;
+package fr.cnam.revision.pralteforme;
 
 public class OffreConcrete implements Offre {
     private int numero;

@@ -1,4 +1,4 @@
-package fr.cnam.revision.tests;
+package fr.cnam.revision.exercice1;
 
 class Exemple1 {
     private double z;
