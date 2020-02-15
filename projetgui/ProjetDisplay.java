@@ -1,7 +1,7 @@
 package fr.cnam.revision.projetgui;
 
 import fr.cnam.revision.applicationProjet.AppProjet;
-import fr.cnam.revision.applicationProjet.Offre;
+import fr.cnam.revision.projet.Offre;
 import fr.cnam.tp12.mypatterns.MyObserver;
 
 import javax.swing.*;

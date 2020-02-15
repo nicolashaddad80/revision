@@ -1,4 +1,4 @@
-package fr.cnam.revision.applicationProjet;
+package fr.cnam.revision.projet;
 
 public interface Offre extends Comparable<Offre> {
     int getNumero();

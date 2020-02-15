@@ -1,7 +1,7 @@
-package fr.cnam.revision.projetgui;
+package fr.cnam.revision.applicationProjet;
 
-import fr.cnam.revision.applicationProjet.Offre;
-import fr.cnam.revision.applicationProjet.Projet;
+import fr.cnam.revision.projet.Offre;
+import fr.cnam.revision.projet.Projet;
 
 import java.util.Iterator;
 
