@@ -1,6 +1,5 @@
 package fr.cnam.revision.projetgui;
 
-
 import fr.cnam.revision.applicationProjet.AppProjet;
 import fr.cnam.revision.applicationProjet.Offre;
 import fr.cnam.tp12.mypatterns.MyObserver;
@@ -9,13 +8,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Iterator;
 
-
 public class ProjetDisplay extends JPanel implements MyObserver {
-
 
     private JTextArea Projetdisplay;
     private JLabel infoProjet;
-
 
     public ProjetDisplay() {
 
@@ -30,7 +26,7 @@ public class ProjetDisplay extends JPanel implements MyObserver {
         this.Projetdisplay.setRows(10);
         this.Projetdisplay.setAutoscrolls(true);
         this.add(infoProjet, BorderLayout.NORTH);
-        this.add(this.Projetdisplay,BorderLayout.CENTER);
+        this.add(this.Projetdisplay, BorderLayout.CENTER);
         this.setAutoscrolls(false);
         this.LoadMyModel();
     }
@@ -50,7 +46,7 @@ public class ProjetDisplay extends JPanel implements MyObserver {
     public void update(Object observable) {
         Offre derniereOffre = null;
         Iterator<Offre> it = AppProjet.getMonObservableProjet().iterator();
-        while ( it.hasNext() )
+        while (it.hasNext())
             derniereOffre = it.next();
 
         if (derniereOffre == null)
@@ -58,12 +54,6 @@ public class ProjetDisplay extends JPanel implements MyObserver {
         else
             this.Projetdisplay.append(derniereOffre + "\n");
     }
-
-    /**
-     * Implementing OptimizedClass as my Graphical elements are actualized on my Model notifications
-     * need to unregister me from my Observable Model list
-     * This is to allow garbage collector freeing my occupied memory space at my instantiation (creation)
-     */
 
     @Override
     public void destroy() {

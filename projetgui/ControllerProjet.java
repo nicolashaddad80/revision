@@ -34,6 +34,7 @@ public class ControllerProjet extends JPanel {
 
         this.panelBouton.add(this.boutonAnnuler, BorderLayout.WEST);
         this.panelBouton.add(this.boutonPreter, BorderLayout.EAST);
+
         LayoutManager controllerLayout = new GridLayout(3, 1);
         this.setLayout(controllerLayout);
         this.add(this.panelMontant, 0);
@@ -46,24 +47,15 @@ public class ControllerProjet extends JPanel {
 
     private void updateModel(ActionEvent actionEvent) {
 
-        //todo check if not null and also if Montant and Taux are within the specified ranges
         int montant = this.getMontant();
         double taux = this.getTaux();
         boolean montantValide = this.validateMontant(montant);
         boolean tauxValide = this.validateTaux(taux);
 
-        if (montantValide && tauxValide)
+        if (montantValide && tauxValide) {
             AppProjet.getMonObservableProjet().faireOffre(montant, taux);
-
-
-        /*TODO incomment if (!userMessageField.getText().isEmpty()) {
-            //TODO AppProjet.getMonObservableProjet().add(ts + "  " + this.userLabel.getText() + this.userMessageField.getText() + DebugOnOFF.newline);
-            //AppProjet.getMonObservableProjet().faireOffre(this.);
-            this.userMessageField.setText("");
+            this.clearOffer();
         }
-
-         */
-
     }
 
     private boolean validateMontant(double montant) {

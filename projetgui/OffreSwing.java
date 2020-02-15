@@ -10,23 +10,22 @@ import java.awt.event.WindowEvent;
 public class OffreSwing {
 
     private final JFrame fenetre;
-    private final ProjetDisplay monAffichageProjet= new ProjetDisplay();;
+    private final ProjetDisplay monAffichageProjet = new ProjetDisplay();
     private final ControllerProjet monControlleurProjet = new ControllerProjet();
 
 
     public OffreSwing() {
         this.fenetre = new JFrame("Offre de pret");
         Container content = this.fenetre.getContentPane();
-
-
-        content.add(this.monAffichageProjet,BorderLayout.NORTH);
+        content.add(this.monAffichageProjet, BorderLayout.NORTH);
         content.add(this.monControlleurProjet, BorderLayout.CENTER);
+
+        this.fenetre.setSize(500, 470);
         this.fenetre.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
                 myExit();
             }
         });
-        this.fenetre.setSize(500, 470);
     }
 
     public void start() {

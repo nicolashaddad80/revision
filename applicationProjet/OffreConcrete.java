@@ -29,6 +29,6 @@ public class OffreConcrete implements Offre {
 
     @Override
     public int compareTo(Offre offre) {
-        return this.numero-offre.getNumero();
+        return this.numero - offre.getNumero();
     }
 }
