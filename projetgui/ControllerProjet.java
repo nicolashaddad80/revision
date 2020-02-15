@@ -63,8 +63,10 @@ public class ControllerProjet extends JPanel {
         if (montant >= 20) {
             this.valeurMontant.setBackground(Color.WHITE);
             montantIsValide = true;
-        } else
+        } else {
             this.valeurMontant.setBackground(Color.RED);
+            JOptionPane.showMessageDialog(null, "Le Montant doit etre superieur a 20 Euros");
+        }
         return montantIsValide;
     }
 
@@ -75,8 +77,10 @@ public class ControllerProjet extends JPanel {
 
             this.valeurTaux.setBackground(Color.WHITE);
             tauxIsValide = true;
-        } else
+        } else {
             this.valeurTaux.setBackground(Color.RED);
+            JOptionPane.showMessageDialog(null, "Le Taux doit etre compris entre 4 et 10");
+        }
         return tauxIsValide;
     }
 

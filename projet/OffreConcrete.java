@@ -24,7 +24,7 @@ public class OffreConcrete implements Offre {
     }
 
     public String toString() {
-        return String.format("%4d. %8d à%5.1f", this.numero, this.montant, this.taux);
+        return String.format("%4d. %8d a%5.1f", this.numero, this.montant, this.taux);
     }
 
     @Override
