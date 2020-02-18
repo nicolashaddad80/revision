@@ -21,8 +21,6 @@ public class Main {
 
     private boolean loadClass(String fileName) {
 
-        //TODO laod from a file name
-        //Loading the class from its name
         Boolean loadSuccess = false;
         try {
             this.aClass = Class.forName(fileName);
