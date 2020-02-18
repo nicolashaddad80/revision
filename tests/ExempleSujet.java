@@ -1,7 +1,12 @@
 package fr.cnam.revision.tests;
 
+import fr.cnam.revision.Exercice4.Serialiseur;
+import fr.cnam.revision.Exercice4.SerialiseurConcret;
 import fr.cnam.revision.pralteforme.Plateforme;
 import fr.cnam.revision.pralteforme.PlateformeConcrete;
+
+import java.io.FileWriter;
+import java.io.Writer;
 
 public class ExempleSujet {
 
@@ -19,5 +24,19 @@ public class ExempleSujet {
 
     public static void main(String[] args) throws Exception {
         Plateforme exemple = getPlateformeSujet();
+
+        //TO Clean Surround with try catch
+
+        Writer monFichierxml=new FileWriter("ExempleSujetPlateforme.xml");
+
+        Serialiseur monSerialiseur= new SerialiseurConcret();
+
+        //TO Clean Surround with try catch
+        monSerialiseur.serialiser(exemple,monFichierxml);
+
+        //TO Clean use auto closable
+        monFichierxml.close();
+
+
     }
 }

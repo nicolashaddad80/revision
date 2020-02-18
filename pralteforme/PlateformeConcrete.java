@@ -13,7 +13,7 @@ public class PlateformeConcrete extends HashMap<String, Projet> implements Plate
     }
 
     public void faireOffre(String nom, int montant, double taux) {
-
+            this.getProjet(nom).faireOffre(montant,taux);
     }
 
     public Projet getProjet(String nom) {
