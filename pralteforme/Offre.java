@@ -7,7 +7,7 @@ public interface Offre extends Comparable<Offre> {
 
     double getTaux();
 
-    int getEtat();
+    OffreState getEtat();
 
     void setEtat(OffreState state);
 }

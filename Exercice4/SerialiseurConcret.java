@@ -34,7 +34,7 @@ public class SerialiseurConcret implements Serialiseur {
                 xmlMontant.setAttribute(new Attribute("montant",Integer.toString(offreObject.getMontant())));
                 xmlMontant.setAttribute(new Attribute("taux",Double.toString(offreObject.getTaux())));
                 xmlMontant.setAttribute(new Attribute("numéro",Integer.toString(offreObject.getNumero())));
-                xmlMontant.setAttribute(new Attribute("numéro",Integer.toString(offreObject.getEtat())));
+                xmlMontant.setAttribute(new Attribute("état",offreObject.getEtat().toString()));
             }
 
         }

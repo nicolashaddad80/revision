@@ -25,6 +25,7 @@ public class OffreConcrete implements Offre {
         return this.taux;
     }
 
+
     @Override
     public void setEtat(OffreState state){
         this.etat=state;
@@ -40,7 +41,7 @@ public class OffreConcrete implements Offre {
     }
 
     @Override
-    public int getEtat() {
-        return 0;
+    public OffreState getEtat() {
+        return this.etat;
     }
 }
