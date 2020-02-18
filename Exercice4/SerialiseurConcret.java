@@ -14,7 +14,7 @@ public class SerialiseurConcret implements Serialiseur {
         DocType docType = new DocType("crowdlending", "crowdlending.dtd");
         Document document = new Document(racine, docType);
 
- ...
+ //...
 
         // Production du fichier XML
         XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
