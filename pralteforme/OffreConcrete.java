@@ -4,11 +4,13 @@ public class OffreConcrete implements Offre {
     private int numero;
     private int montant;
     private double taux;
+    private OffreState etat;
 
     public OffreConcrete(int numero, int montant, double taux) {
         this.numero = numero;
         this.montant = montant;
         this.taux = taux;
+        this.etat = OffreState.ONGOIG;
     }
 
     public int getNumero() {
@@ -23,6 +25,11 @@ public class OffreConcrete implements Offre {
         return this.taux;
     }
 
+    @Override
+    public void setEtat(OffreState state){
+        this.etat=state;
+    }
+
     public String toString() {
         return String.format("%4d. %8d a%5.1f", this.numero, this.montant, this.taux);
     }
@@ -30,5 +37,10 @@ public class OffreConcrete implements Offre {
     @Override
     public int compareTo(Offre offre) {
         return this.numero - offre.getNumero();
+    }
+
+    @Override
+    public int getEtat() {
+        return 0;
     }
 }
