@@ -3,25 +3,27 @@ package fr.cnam.revision.Exercice4;
 import fr.cnam.revision.pralteforme.Offre;
 import fr.cnam.revision.pralteforme.Plateforme;
 import fr.cnam.revision.pralteforme.Projet;
-import org.jdom.*;
-import org.jdom.output.*;
+import org.jdom2.Attribute;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
+import java.io.IOException;
 import java.util.Iterator;
-
 
 public class SerialiseurConcret implements Serialiseur {
 
-    public  void serialiser(Plateforme plateforme, java.io.Writer out)
-            throws java.io.IOException
-    {
-// CrÃ©ation du document XML
+
+    public void serialiser(Plateforme plateforme, java.io.Writer out)
+            throws IOException {
+        // Création du document XML
         Element racine = new Element("crowdlending");
         DocType docType = new DocType("crowdlending", "crowdlending.dtd");
         Document document = new Document(racine, docType);
-
-        //TODO complete here
-
-        for (Projet projetObject:plateforme) {
+        // Production du fichier XML en se basant sur la DTD Fournis
+        for (Projet projetObject : plateforme) {
 
             Element xmlProjet = new Element("projet");
             xmlProjet.setAttribute(new Attribute("nom", projetObject.getNom()));
@@ -32,19 +34,15 @@ public class SerialiseurConcret implements Serialiseur {
             for (Iterator<Offre> it = projetObject.iterator(); it.hasNext(); ) {
                 Offre offreObject = it.next();
                 Element xmlOffre = new Element("offre");
-                xmlOffre.setAttribute(new Attribute("montant",Integer.toString(offreObject.getMontant())));
-                xmlOffre.setAttribute(new Attribute("taux",Double.toString(offreObject.getTaux())));
-                xmlOffre.setAttribute(new Attribute("numero",Integer.toString(offreObject.getNumero())));
-                xmlOffre.setAttribute(new Attribute("etat",offreObject.getEtat().offerState));
+                xmlOffre.setAttribute(new Attribute("montant", Integer.toString(offreObject.getMontant())));
+                xmlOffre.setAttribute(new Attribute("taux", Double.toString(offreObject.getTaux())));
+                xmlOffre.setAttribute(new Attribute("numéro", Integer.toString(offreObject.getNumero())));
+                xmlOffre.setAttribute(new Attribute("état", offreObject.getEtat().offerState));
                 xmlProjet.addContent(xmlOffre);
             }
             racine.addContent(xmlProjet);
         }
 
-
-        //TODO finish Complete here
-
-        // Production du fichier XML
         XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
         sortie.output(document, out);
     }

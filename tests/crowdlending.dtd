@@ -10,5 +10,5 @@
         <!ATTLIST offre
                 montant CDATA #REQUIRED
                 taux CDATA #REQUIRED
-                numero CDATA #REQUIRED
-                etat (EN-COURS |NON-RETENUE| RETENUE)   #REQUIRED>
+                numéro CDATA #REQUIRED
+                état (EN-COURS |NON-RETENUE| RETENUE)   #REQUIRED>
