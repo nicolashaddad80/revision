@@ -2,6 +2,12 @@ package fr.cnam.revision.tests;
 
 import fr.cnam.revision.pralteforme.Plateforme;
 import fr.cnam.revision.pralteforme.PlateformeConcrete;
+import fr.cnam.revision.serialiseurxml.Serialiseur;
+import fr.cnam.revision.serialiseurxml.SerialiseurConcret;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 
 public class ExempleSujet {
 
@@ -19,5 +25,21 @@ public class ExempleSujet {
 
     public static void main(String[] args) throws Exception {
         Plateforme exemple = getPlateformeSujet();
+        Writer monFichierxml = null;
+        //TO Clean Surround with try catch
+        //TO Clean Surround with try catch
+        try {
+            monFichierxml = new FileWriter("ExempleSujetPlateforme.xml");
+        } catch (IOException e) {
+            System.out.println("Problem sur le fichier créé");
+            //Not mandatory to close FileWriter as it is autoClosable
+        }
+        try {
+            Serialiseur monSerialiseur = new SerialiseurConcret();
+            monSerialiseur.serialiser(exemple, monFichierxml);
+        } catch (IOException e) {
+            System.out.println("Problem sur le fichier DTD");
+            //Not mandatory to close FileWriter as it is autoClosable
+        }
     }
 }

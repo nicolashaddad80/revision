@@ -1,10 +1,10 @@
 package fr.cnam.revision.exercice1;
 
 class Exemple1 {
+    public boolean d;
     private double z;
     private int a;
     private char c;
-    public boolean d;
 
     public void m() {
     }

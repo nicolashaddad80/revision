@@ -1,4 +1,4 @@
-package fr.cnam.revision.applicationProjet;
+package fr.cnam.revision.applicationprojet;
 
 import fr.cnam.revision.pralteforme.Offre;
 import fr.cnam.revision.pralteforme.Projet;
@@ -9,32 +9,32 @@ public abstract class ProjetDecorator implements Projet {
     private static Projet monProjet;
 
     public ProjetDecorator(Projet monProjet) {
-        this.monProjet = monProjet;
+        ProjetDecorator.monProjet = monProjet;
     }
 
     @Override
     public String getNom() {
-        return this.monProjet.getNom();
+        return monProjet.getNom();
     }
 
     @Override
     public int getMontant() {
-        return this.monProjet.getMontant();
+        return monProjet.getMontant();
     }
 
     @Override
     public void faireOffre(int montant, double taux) {
-        this.monProjet.faireOffre(montant, taux);
+        monProjet.faireOffre(montant, taux);
     }
 
     public Iterator<Offre> iterator() {
-        return this.monProjet.iterator();
+        return monProjet.iterator();
     }
 
     @Override
     public String toString() {
 
-        return this.monProjet.toString();
+        return monProjet.toString();
     }
 
 }

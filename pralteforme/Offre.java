@@ -6,4 +6,8 @@ public interface Offre extends Comparable<Offre> {
     int getMontant();
 
     double getTaux();
+
+    OffreState getEtat();
+
+    void setEtat(OffreState state);
 }

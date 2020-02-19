@@ -1,4 +1,4 @@
-package fr.cnam.revision.applicationProjet;
+package fr.cnam.revision.applicationprojet;
 
 import fr.cnam.revision.pralteforme.ProjetConcret;
 

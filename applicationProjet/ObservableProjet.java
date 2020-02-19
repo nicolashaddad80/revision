@@ -1,8 +1,8 @@
-package fr.cnam.revision.applicationProjet;
+package fr.cnam.revision.applicationprojet;
 
 import fr.cnam.cour11.DebugOnOFF;
-import fr.cnam.tp12.mypatterns.MyObservable;
 import fr.cnam.revision.pralteforme.Projet;
+import fr.cnam.tp12.mypatterns.MyObservable;
 import fr.cnam.tp12.mypatterns.MyObserver;
 
 import java.util.ArrayList;
