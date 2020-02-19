@@ -19,6 +19,10 @@ public class Main {
         }
     }
 
+    public static void main(String[] args) throws ClassNotFoundException {
+        System.out.println(new Main("fr.cnam.revision.exercice1." + args[0]).displayFielsHavingMethod());
+    }
+
     private boolean loadClass(String fileName) {
 
         Boolean loadSuccess = false;
@@ -30,7 +34,6 @@ public class Main {
         }
         return loadSuccess;
     }
-
 
     private void getDeclaredFieldsNames() {
         //Getting all Fields from the class
@@ -60,9 +63,5 @@ public class Main {
                 s.append(fieldName + "\n");
         }
         return s.toString();
-    }
-
-    public static void main(String[] args) throws ClassNotFoundException {
-        System.out.println(new Main("fr.cnam.revision.exercice1." + args[0]).displayFielsHavingMethod());
     }
 }

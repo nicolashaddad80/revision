@@ -1,4 +1,4 @@
-package fr.cnam.revision.Exercice4;
+package fr.cnam.revision.serialiseurxml;
 
 import fr.cnam.revision.pralteforme.Offre;
 import fr.cnam.revision.pralteforme.Plateforme;

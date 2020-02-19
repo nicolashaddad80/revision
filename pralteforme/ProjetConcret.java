@@ -4,9 +4,9 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 public class ProjetConcret extends TreeSet<Offre> implements Projet {
+    private static int numOffre = 0;
     private String nom;
     private int montant;
-    private static int numOffre = 0;
     // les offres
     private TreeSet<Offre> mesOffres = new TreeSet<>();
 

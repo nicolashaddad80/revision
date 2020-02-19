@@ -1,7 +1,7 @@
 package fr.cnam.revision.projetgui;
 
 import fr.cnam.cour11.DebugOnOFF;
-import fr.cnam.revision.applicationProjet.AppProjet;
+import fr.cnam.revision.applicationprojet.AppProjet;
 
 import javax.swing.*;
 import java.awt.*;

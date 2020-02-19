@@ -1,9 +1,9 @@
 package fr.cnam.revision.tests;
 
-import fr.cnam.revision.Exercice4.Serialiseur;
-import fr.cnam.revision.Exercice4.SerialiseurConcret;
 import fr.cnam.revision.pralteforme.Plateforme;
 import fr.cnam.revision.pralteforme.PlateformeConcrete;
+import fr.cnam.revision.serialiseurxml.Serialiseur;
+import fr.cnam.revision.serialiseurxml.SerialiseurConcret;
 
 import java.io.FileWriter;
 import java.io.IOException;

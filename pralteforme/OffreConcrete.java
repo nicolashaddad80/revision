@@ -25,12 +25,6 @@ public class OffreConcrete implements Offre {
         return this.taux;
     }
 
-
-    @Override
-    public void setEtat(OffreState state){
-        this.etat=state;
-    }
-
     public String toString() {
         return String.format("%4d. %8d a%5.1f", this.numero, this.montant, this.taux);
     }
@@ -43,5 +37,10 @@ public class OffreConcrete implements Offre {
     @Override
     public OffreState getEtat() {
         return this.etat;
+    }
+
+    @Override
+    public void setEtat(OffreState state) {
+        this.etat = state;
     }
 }
